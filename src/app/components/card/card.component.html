@@ -1,0 +1,40 @@
+<div class="container">
+    <input placeholder="filter........." #filterInput type="text" (input)="filter(filterInput)">
+  <div class="row">
+    <div
+      class="col-12 col-md-4"
+      *ngFor="
+        let item of container;
+        let f = first;
+        let l = last;
+        let i = index;
+        let e = even;
+        let o = odd
+      "
+    >
+      <div
+        class="card m-3"
+        [ngClass]="{
+          'bg-warning': o,
+          'bg-danger': e,
+          'text-white': f
+        }"
+        style="width: 18rem"
+      >
+        <img src="assets/images/default.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p>first: {{ f }}</p>
+          <p>last: {{ l }}</p>
+          <p>index: {{ i }}</p>
+          <p>isEven: {{ e }}</p>
+          <p>isOdd: {{ o }}</p>
+          <p class="card-text">
+            {{ item.body }}
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
